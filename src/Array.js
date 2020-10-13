@@ -3,7 +3,7 @@ import './Array.css'
 
 import {Slider} from '@material-ui/core'
 
-export default class NavBar extends React.Component{
+export default class GenerateArr extends React.Component{
   state = {
     value : 4
   }
