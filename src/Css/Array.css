@@ -9,12 +9,30 @@
 
 .nums{
 
-    border: solid red 5px; 
+    position: relative;
+
+    border: solid black 5px; 
 
     align-items: center; 
 
-    height: 90px; 
+ 
 
+    margin-bottom: 100px;
 
-   
+}
+
+.nums h2{
+
+   position: absolute;
+   padding: 0;
+   margin: 0 auto; 
+
+   bottom: 0; 
+   left: 0;
+
+   font-size: 20px;
+   align-items: center; 
+
+   margin-left: 40%; 
+
 }

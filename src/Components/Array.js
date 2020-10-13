@@ -23,15 +23,55 @@ function Array(props){
     // http://stackoverflow.com/questions/962802#962890
     //Generates random nums to fill the array based on size 
     numArray = shuffle(numArray);
-    return(
+
+    if(props.value < 10){
+      return(
         <div className = "arrayContainer">
             {numArray.map(num => (
-            <div className = "nums">
+            <div className = "nums" 
+            style = {{height: `${num * 4 + 90}px`, width: `${90}px`}}>
+              <h2>{num}</h2>
+           </div>
+         ))}
+        </div>
+      )
+    }
+    else if (props.value > 10 && props.value < 24){
+      return(
+        <div className = "arrayContainer">
+            {numArray.map(num => (
+            <div className = "nums" 
+            style = {{height: `${num * 2 + 20}px`, width: '60px'}}>
               <h2>{num}</h2>
            </div>
          ))}
         </div>
     )
+
+    }
+    else if(props.value > 25 && props.value < 75){
+      return(
+        <div className = "arrayContainer">
+            {numArray.map(num => (
+            <div className = "nums" style = {{height: `${num +20}px`, width: '12px'}}>
+              
+           </div>
+         ))}
+        </div>
+    )
+    }
+    else{
+      return(
+        <div className = "arrayContainer">
+            {numArray.map(num => (
+            <div className = "nums" style = {{height: `${num +20}px`, width: '8px'}}>
+              
+           </div>
+         ))}
+        </div>
+    )
+    }
+ 
 }
 
 export default Array

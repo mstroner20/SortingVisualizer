@@ -16,7 +16,8 @@ const handleChange = (event, newValue) => {
 
 return (
     <div className = "slider" style = {{width: "100px"}}> 
-        <Slider min = {4} value = {value} onChange = {handleChange}></Slider>
+        <Slider step = {5} min = {4} value = {value} onChange = {handleChange}></Slider>
+        <h5> {value}</h5>
         <Array value = {value}/>
 
     </div>
