@@ -1,12 +1,56 @@
-.slider{
+.row{
     margin-left: 20px; 
 
+    position: absolute;
+
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: nowrap;
+    justify-content: space-between;
     
 
     height: 200px;
     width: 100px; 
+
+    border-spacing: 10px;
+
+    clear: both;
+
+    
+}
+
+.col{
+    
+
+    
+    width: 200px;
+
+    float: center;
+}
+
+.col-2{
+   
+    
+
+    margin-left: 100px;
+    margin-top: 65px;
+    height: 150px; 
+    width: 350px; 
+
+    align-items: center; 
+    vertical-align: center; 
+    justify-content: center; 
+    
+    
+}
+
+.col-3{
+    margin-left: 150px; 
+    margin-top: 65px; 
+    
 }
 
 html, body{
     background-color: lightblue;
 }
+
