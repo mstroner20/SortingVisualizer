@@ -1,0 +1,19 @@
+.topBar{
+    height: 100px; 
+    padding-top:20px; 
+
+    margin-left:50px;
+    
+
+    background: rgb(26, 24, 24); 
+
+}
+
+
+
+.topBar Button{
+    margin-top: 50px; 
+    margin-left: 50px; 
+
+    background: white; 
+}

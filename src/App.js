@@ -1,22 +1,15 @@
 //This file holds all logic/ HTMl / Styling in one file 
 import React from 'react';
-import Tweet from './Tweet';
+import MergeSort from './MergeSort'
+import Array from './Array'
+import NavBar from './Navbar'
 
 
 function App(){
-
-  
-
-  const counter = 0; 
-
-
-
   return(
-    <div className = "app"> 
-      <h1>This is the app component</h1>
-      <h1>Hello React</h1>
-      <Tweet />
-
+    <div className = "App"> 
+  
+      <Array/>
       
     </div>
   );

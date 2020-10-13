@@ -1,17 +1,3 @@
-.app{
+html, body, #root, .App {
   height: 100vh;
-  background: lightblue;
-}
-
-.tweet{
-  display: flex; 
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center; 
-  
-
-  height: 300px; 
-  width: 300px;
-
-  background:white; 
 }
