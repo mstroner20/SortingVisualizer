@@ -1,0 +1,20 @@
+.arrayContainer{
+    display: inline-flex; 
+    align-items: flex-end;
+
+   
+    height: 90vh;
+}
+
+
+.nums{
+
+    border: solid red 5px; 
+
+    align-items: center; 
+
+    height: 90px; 
+
+
+   
+}
