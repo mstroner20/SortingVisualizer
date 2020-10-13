@@ -36,7 +36,7 @@ function Array(props){
         </div>
       )
     }
-    else if (props.value > 10 && props.value < 24){
+    else if (props.value > 10 && props.value <= 24){
       return(
         <div className = "arrayContainer">
             {numArray.map(num => (
@@ -49,11 +49,12 @@ function Array(props){
     )
 
     }
-    else if(props.value > 25 && props.value < 75){
+    else if(props.value >= 25 && props.value < 60){
       return(
         <div className = "arrayContainer">
             {numArray.map(num => (
-            <div className = "nums" style = {{height: `${num +20}px`, width: '12px'}}>
+            <div className = "nums" 
+            style = {{height: `${num +20}px`, width: '16px'}}>
               
            </div>
          ))}
@@ -64,7 +65,8 @@ function Array(props){
       return(
         <div className = "arrayContainer">
             {numArray.map(num => (
-            <div className = "nums" style = {{height: `${num +20}px`, width: '8px'}}>
+            <div className = "nums" 
+            style = {{height: `${num +20}px`, width: '8px'}}>
               
            </div>
          ))}
