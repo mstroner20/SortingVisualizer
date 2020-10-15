@@ -2,29 +2,38 @@ import React, { Component } from 'react'
 
 let numArray = [];
 
+export function setSize(props){
+        let size = props.size; 
+       
+        return size;
+}
 
-
-export function fillArray(props){
-    for (var i=0;i < props.size; ++i) 
+export function FillArray(){
+    for (var i=0;i < setSize; ++i) 
             numArray[i]=i;
+            
+    
     return numArray;
 }
 
 function shuffle (array) {
-        numArray = fillArray();
-        var tmp, current, top = numArray.length;
+        numArray = FillArray();
+        
+        
+        var tmp, current, top = setSize;
         if(top) while(--top) {
           current = Math.floor(Math.random() * (top + 1));
           tmp = array[current];
           array[current] = array[top];
           array[top] = tmp;
-        }
+        } 
         return array;
 }
 
-function shuffledArray (){
+export function shuffledArray (){
      numArray = shuffle(numArray);
-    return numArray;
+     
+     return numArray;
 }
 
 export default shuffledArray;

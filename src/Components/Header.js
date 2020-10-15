@@ -1,9 +1,9 @@
 import React, {Component, useState} from 'react'
 import Slider from '@material-ui/core/Slider';
-import {fillArray} from './CreateArray.js';
-
-
+import {setSize} from './CreateArray.js';
 import '../Css/Header.css'
+
+
 
 function Header() {
 
@@ -14,12 +14,12 @@ const [selectedValue, setNewValue] = useState("quickSort");
 
 const handleChange = (event, newValue) => {
     setValue(newValue);
+    setSize({size});
 }
 
 const currentAlgo = (event, newValue) => {
     
 }
-
 
 function activateSort(){
     isClicked = true;
@@ -30,9 +30,10 @@ return (
         <div className = "row"> 
             <div className = "col">
                 <h6>Array Size: </h6>
-                    <Slider step = {1} min = {4} value = {size} onChange = {handleChange} ></Slider>
+                    <Slider className= 'Slider' step = {1} min = {4} value = {size} onChange = {handleChange} ></Slider>
                         <h5> {size}</h5>
-                    <fillArray size = {size}/>
+                    <setSize/>
+                        
                    
             </div>
             <div className="col-2">
