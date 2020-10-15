@@ -1,15 +1,7 @@
 import React from 'react'
 
-import Array from './Array.js';
+import DisplayArray from './DisplayArray.js';
 
-function MergeSort(props){
-
-for(var i = 0; i < 10; i++){    
-    <Array />
-}
-
-   
-}
 
 
 
