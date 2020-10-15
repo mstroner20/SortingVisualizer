@@ -9,51 +9,50 @@ function Header() {
 
 let isClicked = false; 
 
-const [value, setValue] = useState(4);
+const [size, setValue] = useState(4);
 const [selectedValue, setNewValue] = useState("quickSort");
 
+let props = {
+    size : {size},
+    algo : "merge",
 
-
+};
 
 
 const handleChange = (event, newValue) => {
     setValue(newValue);
 }
 
-const currentAlgo = (event, newSelection) =>{
-    setNewValue(newSelection);
-    newSelection.forEach (newSelection =>
-        console.log(`${newSelection.label}`) 
-    );
+const currentAlgo = (event, newValue) => {
+    
 }
+
 
 function activateSort(){
     console.log("Button Was clicked");
     isClicked = true;
 }
 
-
-
-
 return (
     <div>
         <div className = "row"> 
             <div className = "col">
                 <h6>Array Size: </h6>
-                    <Slider step = {1} min = {4} value = {value} onChange = {handleChange} ></Slider>
-                        <h5> {value}</h5>
-                    <Array value = {value}/>
+                    <Slider step = {1} min = {4} value = {size} onChange = {handleChange} ></Slider>
+                        <h5> {size}</h5>
+                    <Array value = {size}/>
             </div>
             <div className="col-2">
-               
+                <select onChange = {currentAlgo}>
+                    <option value="quickSort">Quick Sort</option>
+                    <option value="mergeSort">Merge Sort</option>
+                </select>
             </div>
             <div className = "col-3">
 
                 <button onClick = {() => {activateSort()}}>Sort!</button>
 
             </div>
-            
-            
         </div>
     </div>
     

@@ -14,6 +14,7 @@ function App(props) {
     <div className="App">
     <Header/>
     <Array />
+    
     </div>
   );
 }

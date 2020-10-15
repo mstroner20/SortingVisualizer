@@ -3,9 +3,11 @@ import React, { Component} from 'react'
 import '../Css/Array.css'
 
 function Array(props){
+    // http://stackoverflow.com/questions/962802#962890
     for (var numArray=[],i=0;i<props.value; ++i) 
     numArray[i]=i;
 
+    //Generates Random Array 
     function shuffle(array) {
         var tmp, current, top = props.value;
         if(top) while(--top) {
@@ -15,12 +17,15 @@ function Array(props){
           array[top] = tmp;
         }
         return array;
-      }
+    }
+
+      //need to write an algo like this ^^ that sorts array based on algo 
+        //Returns new array after each move 
+        //Render array after each move 
 
 
 
 
-    // http://stackoverflow.com/questions/962802#962890
     //Generates random nums to fill the array based on size 
     numArray = shuffle(numArray);
 
@@ -36,7 +41,7 @@ function Array(props){
         </div>
       )
     }
-    else if (props.value > 10 && props.value <= 24){
+    else if (props.value >= 10 && props.value <= 24){
       return(
         <div className = "arrayContainer">
             {numArray.map(num => (
