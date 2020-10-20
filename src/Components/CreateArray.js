@@ -1,26 +1,29 @@
 import React, { Component } from 'react'
+import {DisplayArray} from './DisplayArray';
+import {currentSize} from './Header';
 
 let numArray = [];
 
-export function setSize(props){
-        let size = props.size; 
-       
-        return size;
+let size = 0; 
+export function SetSize(props){
+       size = props.size;
+        
+       return null;
 }
 
-export function FillArray(){
-    for (var i=0;i < setSize; ++i) 
-            numArray[i]=i;
+export function FillArray(size){
+        
+    for (var i=0;i < size; ++i) 
+        numArray[i]=i;
             
-    
+    console.log(size);
     return numArray;
 }
 
 function shuffle (array) {
-        numArray = FillArray();
+        numArray = FillArray(size);
         
-        
-        var tmp, current, top = setSize;
+        var tmp, current, top = size;
         if(top) while(--top) {
           current = Math.floor(Math.random() * (top + 1));
           tmp = array[current];
@@ -30,9 +33,9 @@ function shuffle (array) {
         return array;
 }
 
-export function shuffledArray (){
+export function shuffledArray(){
      numArray = shuffle(numArray);
-     
+    
      return numArray;
 }
 
