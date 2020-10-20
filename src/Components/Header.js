@@ -4,7 +4,6 @@ import {shuffledArray, SetSize} from './CreateArray.js';
 import {DisplayArray} from './DisplayArray.js';
 import '../Css/Header.css'
 
-
 function Header() {
 
 let isClicked = false; 
@@ -17,20 +16,13 @@ const [selectedValue, setNewValue] = useState("quickSort");
 const handleChange = (event, newValue) => {
     setValue(newValue);
     SetSize({size});
-    getNumArray();
-    shuffledArray();
-
 }
 
 const currentAlgo = (event, newValue) => {
     
 }
 
-function getNumArray(){
-    numArray=shuffledArray();
-    
-    return numArray;
-}
+
 
 function activateSort(){
     isClicked = true;
@@ -44,7 +36,7 @@ return (
                     <Slider className= 'Slider' step = {1} min = {4} value = {size} onChange = {handleChange} ></Slider>
                         <h5> {size}</h5>
                         <SetSize size ={size}/>
-                        <DisplayArray test = {getNumArray}/>
+                        <DisplayArray/>
             </div>
             <div className="col-2">
                 <select onChange = {currentAlgo}>

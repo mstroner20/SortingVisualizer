@@ -1,7 +1,3 @@
-import React, { Component } from 'react'
-import {DisplayArray} from './DisplayArray';
-import {currentSize} from './Header';
-
 let numArray = [];
 
 let size = 0; 
