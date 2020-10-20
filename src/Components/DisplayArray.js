@@ -6,9 +6,8 @@ import '../Css/Array.css'
 let numArray = [];
 
 export function DisplayArray(props){
-  
   numArray = shuffledArray();
-  
+  console.log(numArray);
   return(
     <div className = "arrayContainer">
         {numArray.map(num => (

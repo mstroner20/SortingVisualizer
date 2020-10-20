@@ -16,7 +16,7 @@ export function FillArray(size){
     for (var i=0;i < size; ++i) 
         numArray[i]=i;
             
-    console.log(size);
+    
     return numArray;
 }
 
@@ -39,6 +39,6 @@ export function shuffledArray(){
      return numArray;
 }
 
-export default shuffledArray;
+export default numArray;
 
 
