@@ -1,8 +1,16 @@
 import React, { useState} from 'react'
 import Slider from '@material-ui/core/Slider';
-import {shuffledArray, SetSize} from './CreateArray.js';
+import {SetSize} from './CreateArray.js';
 import {DisplayArray} from './DisplayArray.js';
 import '../Css/Header.css'
+
+let isClicked = false; 
+
+export function ActivateSort(){
+    isClicked = true;
+    console.log("isCliked");
+    return isClicked; 
+}
 
 function Header() {
 
@@ -22,12 +30,6 @@ const currentAlgo = (event, newValue) => {
     
 }
 
-
-
-function activateSort(){
-    isClicked = true;
-}
-
 return (
     <div>
         <div className = "row"> 
@@ -45,9 +47,7 @@ return (
                 </select>
             </div>
             <div className = "col-3">
-
-                <button onClick = {() => {activateSort()}}>Sort!</button>
-
+                <button onClick = {() => {ActivateSort()}}>Sort!</button>
             </div>
         </div>
     </div>
@@ -59,4 +59,7 @@ return (
 }
 
 
+
+
 export default Header;
+
