@@ -1,65 +1,63 @@
-import React, { useState} from 'react'
+import React, {Component, useState} from 'react'
 import Slider from '@material-ui/core/Slider';
-import {SetSize} from './CreateArray.js';
-import {DisplayArray} from './DisplayArray.js';
+import Array from './Array.js';
+import MergeSort from './MergeSort.js';
+
 import '../Css/Header.css'
 
-let isClicked = false; 
 
-export function ActivateSort(){
-    isClicked = true;
-    console.log("isCliked");
-    return isClicked; 
-}
+var isClicked = false; 
 
 function Header() {
 
-let isClicked = false; 
-let numArray = [];
 
-
-const [size, setValue] = useState(4);
+const [value, setValue] = useState(4);
 const [selectedValue, setNewValue] = useState("quickSort");
 
 const handleChange = (event, newValue) => {
     setValue(newValue);
-    SetSize({size});
-}
-
-const currentAlgo = (event, newValue) => {
     
 }
+
+const currentAlgo = (event) =>{
+    setNewValue(event.target.value);
+    //console.log(selectedValue);
+}
+
+function activateSort(){
+    console.log("Button Was clicked");
+    isClicked = true;
+    
+}
+
+
 
 return (
     <div>
         <div className = "row"> 
             <div className = "col">
                 <h6>Array Size: </h6>
-                    <Slider className= 'Slider' step = {1} min = {4} value = {size} onChange = {handleChange} ></Slider>
-                        <h5> {size}</h5>
-                        <SetSize size ={size}/>
-                        <DisplayArray/>
+                    <Slider disabled = {isClicked} step = {1} min = {4} value = {value} onChange = {handleChange} ></Slider>
+                        <h5> {value}</h5>
+                    <Array value = {value} algo = {selectedValue}/>
             </div>
             <div className="col-2">
-                <select onChange = {currentAlgo}>
-                    <option value="quickSort">Quick Sort</option>
-                    <option value="mergeSort">Merge Sort</option>
-                </select>
+               <select defaultValue = {"MergeSort"} onChange = {currentAlgo}>
+                    <option value="MergeSort" label= 'Merge Sort'></option>
+                    <option value="BubbleSort" label= 'Bubble Sort'></option>
+                    <option value="QuickSort" label= 'Quick Sort'></option>
+
+               </select>
             </div>
             <div className = "col-3">
-                <button onClick = {() => {ActivateSort()}}>Sort!</button>
+
+                <button onClick = {() => {activateSort()}}>Sort!</button>
+
             </div>
+            
+            
         </div>
     </div>
-    
-    
-)
-
-
+ )
 }
-
-
-
-
-export default Header;
-
+export default Header
