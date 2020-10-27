@@ -1,22 +1,21 @@
-import React, {Component, useState} from 'react'
+import React, {useState} from 'react'
 import Slider from '@material-ui/core/Slider';
 import Array from './Array.js';
-import MergeSort from './MergeSort.js';
+
 
 import '../Css/Header.css'
 
 
-var isClicked = false; 
+let isClicked = false; 
 
 function Header() {
 
 
 const [value, setValue] = useState(4);
-const [selectedValue, setNewValue] = useState("quickSort");
+const [selectedValue, setNewValue] = useState("MergeSort");
 
 const handleChange = (event, newValue) => {
     setValue(newValue);
-    
 }
 
 const currentAlgo = (event) =>{
@@ -39,10 +38,10 @@ return (
                 <h6>Array Size: </h6>
                     <Slider disabled = {isClicked} step = {1} min = {4} value = {value} onChange = {handleChange} ></Slider>
                         <h5> {value}</h5>
-                    <Array value = {value} algo = {selectedValue}/>
+                    <Array value = {value} algo = {selectedValue} sort = {isClicked}/>
             </div>
             <div className="col-2">
-               <select defaultValue = {"MergeSort"} onChange = {currentAlgo}>
+               <select defaultValue = {"MergeSort"} onChange = {currentAlgo} disabled = {isClicked}>
                     <option value="MergeSort" label= 'Merge Sort'></option>
                     <option value="BubbleSort" label= 'Bubble Sort'></option>
                     <option value="QuickSort" label= 'Quick Sort'></option>
