@@ -1,6 +1,6 @@
 import React from 'react'
-import MergeSort from '../Components/MergeSort.js'
 import '../Css/Array.css'
+import bubbleSortBasic from './BubbleSort.js';
 
 function Array(props){
     var size = props.value; 
@@ -28,7 +28,7 @@ function Array(props){
         width = 90;
         
     }
-    else if(size > 10 && size <= 24){
+    else if(size >= 10 && size <= 24){
         width = 60;
         
     }
@@ -46,16 +46,17 @@ function Array(props){
     numArray = shuffle(numArray);
     
     
-    if(props.algo === 'MergeSort' && props.sort === true){
-        MergeSort(numArray);
+    if(props.algo === 'BubbleSort' && props.sort === true){
+        bubbleSortBasic(numArray);
 
     }
+    
+    
 
-    function renderNewArray(){
-        
+    function renderNewArray(arr){
         return(
             <div className = "arrayContainer">
-                {numArray.map(num => (
+                {arr.map(num => (
                 <div className = "nums" 
                 style = {{height: `${num * 7 + 90}px`, width: `${width}px`}}>
                   <h2 style = {{opacity:`${opacity}`}}>{num}</h2>
@@ -67,7 +68,7 @@ function Array(props){
 
     return(
         <div>
-            {renderNewArray()}
+            {renderNewArray(numArray)}
         </div>
     )
 

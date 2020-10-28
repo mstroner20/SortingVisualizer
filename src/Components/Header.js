@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import Slider from '@material-ui/core/Slider';
 import Array from './Array.js';
 
-
 import '../Css/Header.css'
 
 
@@ -12,7 +11,7 @@ function Header() {
 
 
 const [value, setValue] = useState(4);
-const [selectedValue, setNewValue] = useState("MergeSort");
+const [selectedValue, setNewValue] = useState("BubbleSort");
 
 const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -41,7 +40,7 @@ return (
                     <Array value = {value} algo = {selectedValue} sort = {isClicked}/>
             </div>
             <div className="col-2">
-               <select defaultValue = {"MergeSort"} onChange = {currentAlgo} disabled = {isClicked}>
+               <select defaultValue = {"BubbleSort"} onChange = {currentAlgo} disabled = {isClicked}>
                     <option value="MergeSort" label= 'Merge Sort'></option>
                     <option value="BubbleSort" label= 'Bubble Sort'></option>
                     <option value="QuickSort" label= 'Quick Sort'></option>
