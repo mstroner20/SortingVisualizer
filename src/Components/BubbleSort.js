@@ -4,8 +4,8 @@ function swap(arr, current, next){
     let curVal = arr[current];
     arr[current] = arr[next];
     arr[next] = curVal; 
-    renderNewArray(arr);
-    setTimeout(() => {   }, 2000);
+    
+   
 
 }
 
@@ -22,7 +22,7 @@ let endIndex = arr.length - 1;
       // loop over the array, comparing each pair of elements until the comparison element reaches the sorted portion of the array
       while(currentIndex < endIndex){
           // uncomment this line to see the comparison in action
-          // console.log(arr, arr[currentIndex], arr[currentIndex + 1])
+           renderNewArray(arr);
           // if the current element is greater than the element in front of it
           if(arr[currentIndex] > arr[currentIndex + 1]){
               //swap the 2 elements using our helper function

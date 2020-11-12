@@ -48,11 +48,8 @@ function Array(props){
     
     if(props.algo === 'BubbleSort' && props.sort === true){
         bubbleSortBasic(numArray);
-
     }
     
-    
-
     function renderNewArray(arr){
         return(
             <div className = "arrayContainer">
