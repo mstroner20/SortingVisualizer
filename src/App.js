@@ -1,23 +1,12 @@
-import React from 'react';
-
 import './App.css';
+import './Components/Sorting.jsx'
+import SortingVisualizer from './Components/Sorting.jsx';
+import React from 'react'
 
-
-import Header from './Components/Header.js';
-import Array from './Components/Array.js'
-
-
-
-
-
-function App(props) {
+function App() {
   return (
     <div className="App">
-    <Header/>
-    <Array/>
-    
-    
-
+      <SortingVisualizer></SortingVisualizer>
     </div>
   );
 }

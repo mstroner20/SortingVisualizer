@@ -1,50 +1,55 @@
-import renderNewArray from './Array.js'
+const animations = [];
 
-function swap(arr, current, next){
+export const swap = (arr, current, next) => {
+    animations.push(arr[current]);
+    animations.push(arr[next]);
     let curVal = arr[current];
     arr[current] = arr[next];
-    arr[next] = curVal; 
+    arr[next] = curVal;
     
-   
-
+    
+    getAnimations(animations);
 }
 
-function bubbleSortBasic(arr)
-{
-//start the endIndex at the last index of the array
-let endIndex = arr.length - 1;
-//run the loop until the endIndex(sorted portion) is the 0 (the full array)
-  while(endIndex > 0){
-      // count the number of swaps to short circuit the loop if it is already sorted
-      let swaps = 0;
-      //reset the currentIndex to the beginning of the array each time a new element is sorted
-      let currentIndex = 0;
-      // loop over the array, comparing each pair of elements until the comparison element reaches the sorted portion of the array
-      while(currentIndex < endIndex){
-          // uncomment this line to see the comparison in action
-           renderNewArray(arr);
-          // if the current element is greater than the element in front of it
-          if(arr[currentIndex] > arr[currentIndex + 1]){
-              //swap the 2 elements using our helper function
-              swap(arr, currentIndex, currentIndex + 1);
-              // add 1 to the swaps counter
-              swaps++;
-          }
-          //increase the currentIndex to continue iterating through the array
-          currentIndex++;
-      }
-      //stop the loop if there were no swaps because the array must be already sorted 
-      if(swaps === 0) break;
-      // subtract the endIndex number to account for the new element added to the array
-      endIndex--;
-
-  }
-  console.log(arr);
-  return arr;
-
+export const getAnimations = (animations) => {
+    const newAnims = animations; 
+    
+    return newAnims; 
 }
 
 
+export const doBubbleSort = (array) => {
+         //start the endIndex at the last index of the arrayay
+         let newArray = array; 
+        
+         let endIndex = newArray.length - 1;
+         //run the loop until the endIndex(sorted portion) is the 0 (the full newArrayay)
+         while(endIndex > 0){
+             // count the number of swaps to short circuit the loop if it is already sorted
+             let swaps = 0;
+             //reset the currentIndex to the beginning of the newArrayay each time a new element is sorted
+             let currentIndex = 0;
+             // loop over the newArrayay, comparing each pair of elements until the comparison element reaches the sorted portion of the newArrayay
+             while(currentIndex < endIndex){
+                 // uncomment this line to see the comparison in action
+                //console.log(newArray[currentIndex], newArray[currentIndex + 1])
+                 // if the current element is greater than the element in front of it
+                 if(newArray[currentIndex] > newArray[currentIndex + 1]){
+                     //swap the 2 elements using our helper function
+                     swap(newArray, currentIndex, currentIndex + 1);
+                     // add 1 to the swaps counter
+                     swaps++;
+                 }
+             //increase the currentIndex to continue iterating through the newArrayay
+             currentIndex++;
+             }
+             //stop the loop if there were no swaps because the newArrayay must be already sorted 
+             if(swaps === 0)break;
+             // subtract the endIndex number to account for the new element added to the newArrayay
+             endIndex--;
+         }
 
-  
-export default bubbleSortBasic
+         return newArray;
+}
+
+export default animations; 
