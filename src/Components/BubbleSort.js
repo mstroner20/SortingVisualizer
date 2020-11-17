@@ -3,9 +3,13 @@ const animations = [];
 export const swap = (arr, current, next) => {
     animations.push(arr[current]);
     animations.push(arr[next]);
+
+
     let curVal = arr[current];
     arr[current] = arr[next];
     arr[next] = curVal;
+
+    
     
     
     getAnimations(animations);
