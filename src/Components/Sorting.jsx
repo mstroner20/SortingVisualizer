@@ -140,7 +140,7 @@ export class SortingVisualizer extends React.Component{
                             bars[j].style.backgroundColor = "red";
                        }
                        else{
-                        bars[j].style.backgroundColor = "lightblue";
+                        bars[j].style.backgroundColor = "blue";
                        }
                    }
                    if(firstIdx === secondIdx){
