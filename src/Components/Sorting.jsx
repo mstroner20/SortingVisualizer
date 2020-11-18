@@ -15,7 +15,7 @@ export class SortingVisualizer extends React.Component{
         
         this.state = {
             array:[],
-            quickSortSpeed: 100,
+            quickSortSpeed: 1,
             bubbleSortSpeed: 1,  
         };
     }
@@ -29,7 +29,7 @@ export class SortingVisualizer extends React.Component{
     resetArray(){
         let array = [];
         
-        for(let i = 0; i < 5; i++){
+        for(let i = 0; i < 500; i++){
             array.push(randomIntFromIntervals(5,750, array));
             
         }
