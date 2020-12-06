@@ -3,7 +3,7 @@ import '../Components/Sorting.css'
 import  '../Components/BubbleSort.js';
 import animations, { doBubbleSort } from '../Components/BubbleSort.js';
 import quickSortAnims, { doQuickSort } from '../Components/QuickSort.js';
-import { doMergeSort } from './MergeSort';
+import mergeSortAnimations, { doMergeSort } from './MergeSort';
 
 
 export class SortingVisualizer extends React.Component{
@@ -15,6 +15,8 @@ export class SortingVisualizer extends React.Component{
         
         this.state = {
             array:[],
+            arraySize: 7, 
+            barHeight: 750,
             quickSortSpeed: 1,
             bubbleSortSpeed: 1,  
         };
@@ -29,8 +31,9 @@ export class SortingVisualizer extends React.Component{
     resetArray(){
         let array = [];
         
-        for(let i = 0; i < 500; i++){
-            array.push(randomIntFromIntervals(5,750, array));
+        for(let i = 0; i < this.state.arraySize; i++){
+            array.push(randomIntFromIntervals(5,this.state.barHeight, array));
+
             
         }
         this.setState({array});
@@ -111,7 +114,7 @@ export class SortingVisualizer extends React.Component{
         anims = quickSortAnims;
         let bars = [];
         
-        console.log(sortedArray);
+        //console.log(sortedArray);
 
         for(let i = 0; i < anims.length; i+=2){
             
@@ -120,7 +123,7 @@ export class SortingVisualizer extends React.Component{
             let secondBar = anims[i+1] + 'px';
             bars = document.getElementsByClassName('array-bar');
             
-            console.log('anim: ' + firstBar + ' ' + secondBar);
+            //console.log('anim: ' + firstBar + ' ' + secondBar);
             
             //console.log(currentArrayBars);
            
@@ -168,9 +171,65 @@ export class SortingVisualizer extends React.Component{
     }
 
     mergeSort(){
-
+        let anims = [];
         const sortedArray = doMergeSort(this.state.array);
+        anims = mergeSortAnimations;
+        let bars = [];
+        
         console.log(sortedArray);
+
+        for(let i = 0; i < anims.length; i+=2){
+            
+            let swap = 0;
+            let firstBar = anims[i] + 'px';
+            let secondBar = anims[i+1] + 'px';
+            bars = document.getElementsByClassName('array-bar');
+            
+            //console.log('anim: ' + firstBar + ' ' + secondBar);
+            
+            //console.log(currentArrayBars);
+           
+            setTimeout(() => {
+                let firstIdx = 0; 
+                let secondIdx = 0; 
+
+               while(swap === 0)
+               {
+                   for(let j = 0; j < bars.length; j++){
+                       if(bars[j].style.height === firstBar){
+                           firstIdx = j; 
+                           bars[j].style.backgroundColor = 'red';
+                       }
+                       else if(bars[j].style.height === secondBar){
+                            secondIdx = j; 
+                            bars[j].style.backgroundColor = "red";
+                       }
+                       else{
+                        bars[j].style.backgroundColor = "blue";
+                       }
+                   }
+                   if(firstIdx === secondIdx){
+                    bars[firstIdx].style.backgroundColor = "red";
+                   }
+                   else{
+                    let temp = bars[firstIdx].style.height;
+                   
+                    bars[firstIdx].style.backgroundColor = "red";
+                    bars[secondIdx].style.backgroundColor = "red";
+ 
+                    bars[firstIdx].style.height = bars[secondIdx].style.height;
+                    bars[secondIdx].style.height = temp;
+
+                   }
+
+                   
+
+                   swap++;
+               }
+            }, i * this.state.quickSortSpeed)
+        }
+
+        anims.length = 0;  
 
     }
      
@@ -191,7 +250,7 @@ render(){
             <button onClick ={() => this.resetArray()}> Generate New Array </button>
             <button onClick ={() => this.bubbleSort()}> Bubble Sort</button>
             <button onClick ={() => this.quicksort()}>  Quick Sort</button>
-            <button onClick ={() => this.mergeSort()}>  Merge Sort</button>
+            
         </div>
     
         </div>

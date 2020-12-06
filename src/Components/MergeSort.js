@@ -1,37 +1,71 @@
-export const swap = () => {
+let mergeSortAnimations = []; 
+
+export const swap = (originalArr, leftArr, rightArr) => {
+  
+  let copyLeft = leftArr;
+  let copyRight = rightArr;
 
 }
-
 
 export const doMergeSort = (array) => {
-    let arr = [];
-    // top-down implementation
-function merge(left, right) {
-    
-  
-    while (left.length && right.length) {
-      if (left[0] < right[0]) {
-        arr.push(left.shift());
-      } else {
-        arr.push(right.shift());
+
+  function merge(leftArr, rightArr){
+    const output = [];
+    let leftIndex = 0; 
+    let rightIndex = 0; 
+
+    while(leftIndex < leftArr.length && rightIndex < rightArr.length){
+       
+      const leftEl = leftArr[leftIndex];
+      const rightEl = rightArr[rightIndex];
+
+      if(leftEl < rightEl){
+        output.push(leftEl);
+        //mergeSortAnimations.push(leftEl);
+        //console.log("left: " + leftEl);
+        leftIndex++;
+      }
+      else{
+        output.push(rightEl);
+        //console.log("right: " + rightEl);
+        //mergeSortAnimations.push(rightEl);
+        rightIndex++;
       }
     }
-    return arr.concat(left.slice().concat(right.slice()));
-  }
+    //console.log("output: " + [...output])
+    
+    console.log([...output, ...leftArr.slice(leftIndex), ...rightArr.slice(rightIndex)])
+    return ( [...output, ...leftArr.slice(leftIndex), ...rightArr.slice(rightIndex)]); 
+  };
   
-  function mergeSort(arr) {
-    if (arr.length < 2) {
-      return arr;
+  function mergeSort(array) {
+
+    
+    if(array.length <= 1){
+      
+      return array;
     }
-  
-    const middle = Math.floor(arr.length / 2);
-    const left = arr.slice(0, middle);
-    const right = arr.slice(middle);
-  
-    return merge(mergeSort(left), mergeSort(right));
+    
+    const middleIndex = Math.floor(array.length / 2);
+    const leftArr = array.slice(0, middleIndex);
+    const rightArr = array.slice(middleIndex, array.length);
+    
+    swap(array, leftArr, rightArr);
+    
+    
+    //console.log(leftArr);
+    //console.log(rightArr);
+    //console.log(rightArr)
+    
+    
+    return merge(
+      mergeSort(leftArr),
+      mergeSort(rightArr),
+    ); 
+
   }
 
-  mergeSort(array.slice());
-  return arr;
-      
+  return mergeSort(array);
 }
+
+export default mergeSortAnimations; 
